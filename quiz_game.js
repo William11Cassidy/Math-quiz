@@ -26,7 +26,34 @@ problem=n1+"X"+n2
     document.getElementById("num2").value = ""
 
 }
-
+questionturn = "p1"
+answerturn = "p2"
 function check(){
-    console.log("we will check later");
+answer=document.getElementById("input_check_box").value
+    if (answer == (n1*n2)) {
+        if (answerturn == "p1") {
+            player1score += 1
+            document.getElementById("player1score").innerHTML = player1score;
+
+        }
+        else {
+            player2score += 1
+            document.getElementById("player2score").innerHTML = player2score;
+
+        }
+    }
+    if (answerturn == "p1") {
+        answerturn = "p2"
+
+        questionturn = "p1"
+        document.getElementById("playerQuestion").innerHTML = "Question Turn : " + player1name
+        document.getElementById("playerAnswer").innerHTML = "Answer Turn : " + player2name
+    }
+    else {
+        answerturn = "p1"
+        questionturn = "p2"
+        document.getElementById("playerQuestion").innerHTML = "Question Turn : " + player2name
+        document.getElementById("playerAnswer").innerHTML = "Answer Turn : " + player1name
+    }
+document.getElementById("output").innerHTML=""
 }
